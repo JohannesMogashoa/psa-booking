@@ -77,11 +77,7 @@ model ApplicationForm {
   id               String  @id @default(cuid())
   building         String
   roomType         String
-  funding          String  @default("bursary")
-  bursaryName      String?
-  contactNumber    String
-  payerFullName    String?
-  payerIdNumber    String?
+  funding          String  @default("nsfas")
   parentFullName   String
   parentCellNumber String
   student          Student @relation(fields: [studentNumber], references: [studentNumber])

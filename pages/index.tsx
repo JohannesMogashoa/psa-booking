@@ -1,68 +1,12 @@
 import type { NextPage } from "next";
 import Head from "next/head";
-import { prisma } from "./api/auth/[...nextauth]";
-import { useFormik } from "formik";
-import * as Yup from "yup";
+import { useState } from "react";
+import StudentInformationForm from "../components/StudentInformationForm";
+import ApplicationForm from "../components/ApplicationForm";
 
 const Home: NextPage = () => {
-    const studentFormSchema = Yup.object().shape({
-        firstNames: Yup.string().min(3).required(),
-        lastName: Yup.string().min(3).required(),
-        email: Yup.string().email().required(),
-        studentNumber: Yup.string().min(9).required(),
-        cellNumber: Yup.string().min(10).required(),
-        gender: Yup.string().required(),
-        idNumber: Yup.string().required(),
-        dateOfBirth: Yup.string(),
-        residentialAddress: Yup.string().min(3).required(),
-        postalAddress: Yup.string().min(3).required(),
-    });
-
-    const applicationFormSchema = Yup.object().shape({
-        building: Yup.string().oneOf([]).required(),
-        roomType: Yup.string().oneOf([]).required(),
-        funding: Yup.string().oneOf([]).required(),
-        contactNumber: Yup.string().min(10).required(),
-        bursaryName: Yup.string(),
-        payerFullName: Yup.string(),
-        payerIdNumber: Yup.string(),
-        parentFullName: Yup.string().min(3).required(),
-        parentCellNumber: Yup.string().min(10).required(),
-    });
-
-    const studentForm = useFormik({
-        initialValues: {
-            firstNames: "",
-            lastName: "",
-            email: "",
-            studentNumber: "",
-            cellNumber: "",
-            gender: "",
-            idNumber: "",
-            dateOfBirth: "",
-            residentialAddress: "",
-            postalAddress: "",
-        },
-        validationSchema: studentFormSchema,
-        onSubmit: (values) => {},
-    });
-
-    const applicationForm = useFormik({
-        initialValues: {
-            building: Yup.string().oneOf([]).required(),
-            roomType: Yup.string().oneOf([]).required(),
-            funding: Yup.string().oneOf([]).required(),
-            contactNumber: Yup.string().min(10).required(),
-            bursaryName: Yup.string(),
-            payerFullName: Yup.string(),
-            payerIdNumber: Yup.string(),
-            parentFullName: Yup.string().min(3).required(),
-            parentCellNumber: Yup.string().min(10).required(),
-        },
-        validationSchema: applicationFormSchema,
-        onSubmit: (values) => {},
-    });
-
+    const [studentNumber, setStudentNumber] = useState("");
+    const [step, setStep] = useState(2);
     return (
         <div>
             <Head>
@@ -71,6 +15,12 @@ const Home: NextPage = () => {
                 <link rel="icon" href="/favicon.ico" />
             </Head>
             <h1>PSA Registration</h1>
+
+            {step === 1 ? (
+                <StudentInformationForm setStudentNumber={setStudentNumber} setStep={setStep} />
+            ) : (
+                <ApplicationForm studentNumber={studentNumber} />
+            )}
         </div>
     );
 };
