@@ -1,12 +1,8 @@
 import type { NextPage } from "next";
 import Head from "next/head";
-import { useState } from "react";
-import StudentInformationForm from "../components/StudentInformationForm";
-import ApplicationForm from "../components/ApplicationForm";
+import Link from "next/link";
 
 const Home: NextPage = () => {
-    const [studentNumber, setStudentNumber] = useState("");
-    const [step, setStep] = useState(2);
     return (
         <div>
             <Head>
@@ -16,11 +12,16 @@ const Home: NextPage = () => {
             </Head>
             <h1>PSA Registration</h1>
 
-            {step === 1 ? (
-                <StudentInformationForm setStudentNumber={setStudentNumber} setStep={setStep} />
-            ) : (
-                <ApplicationForm studentNumber={studentNumber} />
-            )}
+            <p>
+                Are you a student looking for accommodation? Come join us at Premier Student
+                Accommodation - Your home away from home.
+            </p>
+
+            <Link href={"/application/step-one"}>
+                <button className="inline-flex justify-center py-2 px-4 mt-3 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-red-600 hover:bg-red-700 focus:outline-none">
+                    Apply Now
+                </button>
+            </Link>
         </div>
     );
 };
