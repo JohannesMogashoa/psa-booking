@@ -24,7 +24,7 @@ const StepTwo: NextPage = () => {
 
             console.log(reqBody);
             localStorage.setItem("applicationForm", JSON.stringify(reqBody));
-            // window.location.reload();
+            router.replace(`/application/successful?studentNumber=${studentNumber}`);
         },
     });
 
@@ -35,7 +35,7 @@ const StepTwo: NextPage = () => {
             </Head>
             <main>
                 <form
-                    className="shadow overflow-hidden rounded-md p-3"
+                    className="shadow overflow-hidden rounded-md p-5 w-full max-w-4xl mx-auto"
                     onSubmit={applicationForm.handleSubmit}>
                     <section className="grid grid-cols-1 gap-y-5">
                         <div className="flex flex-col">
@@ -120,7 +120,7 @@ const StepTwo: NextPage = () => {
                     </section>
                     <button
                         type="submit"
-                        className="inline-flex justify-center py-2 px-4 mt-3 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-red-600 hover:bg-red-700 focus:outline-none">
+                        className="flex w-full md:w-1/5 justify-center py-2 px-4 mt-3 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-red-600 hover:bg-red-700 focus:outline-none">
                         Submit Application
                     </button>
                 </form>

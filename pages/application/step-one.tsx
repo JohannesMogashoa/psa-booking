@@ -32,10 +32,10 @@ const StepOne: NextPage = () => {
             <Head>
                 <title></title>
             </Head>
-            <main>
-                <form className="p-5" onSubmit={studentForm.handleSubmit}>
-                    <div className="shadow overflow-hidden rounded-md p-3">
-                        <section className="grid grid-cols-2 gap-x-20 gap-y-5">
+            <main className="">
+                <form className="p-5 w-full max-w-4xl mx-auto" onSubmit={studentForm.handleSubmit}>
+                    <div className="shadow overflow-hidden rounded-md p-3 w-full">
+                        <section className="grid sm:grid-cols-1 md:grid-cols-2 gap-x-20 gap-y-5">
                             <div className="flex flex-col">
                                 <label htmlFor="firstNames">
                                     First Names <span>*</span>
@@ -169,7 +169,7 @@ const StepOne: NextPage = () => {
                         </section>
                         <button
                             type="submit"
-                            className="inline-flex justify-center py-2 px-4 mt-3 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-red-600 hover:bg-red-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-red-500">
+                            className="justify-center py-2 px-4 mt-3 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-red-600 hover:bg-red-700 focus:outline-none flex w-full md:w-1/5">
                             Create Profile
                         </button>
                     </div>
