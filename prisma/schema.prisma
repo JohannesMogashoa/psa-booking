@@ -82,4 +82,5 @@ model ApplicationForm {
   parentCellNumber String
   student          Student @relation(fields: [studentNumber], references: [studentNumber])
   studentNumber    String  @unique
+  status           String  @default("processed")
 }
