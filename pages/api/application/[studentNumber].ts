@@ -1,5 +1,5 @@
 import type { NextApiRequest, NextApiResponse } from "next";
-import { prisma } from "../auth/[...nextauth]";
+import { prisma } from "../../../lib/prisma";
 
 export default async function handle(req: NextApiRequest, res: NextApiResponse) {
     const applicationForm = await prisma.applicationForm.findUnique({ where: { studentNumber: req.query.studentNumber as string } })
