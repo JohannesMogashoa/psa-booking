@@ -29,15 +29,18 @@ const StepTwo: NextPage = () => {
     });
 
     return (
-        <>
+        <div className="w-screen min-h-screen">
             <Head>
-                <title></title>
+                <title>Step Two | MfundiRez Applications</title>
             </Head>
-            <main>
+            <main className="flex overflow-hidden">
                 <form
-                    className="shadow overflow-hidden rounded-md p-5 w-full max-w-4xl mx-auto"
+                    className="flex flex-col items-center justify-center w-full"
                     onSubmit={applicationForm.handleSubmit}>
-                    <section className="grid grid-cols-1 gap-y-5">
+                    <h1 className="text-4xl mb-5 font-bold italic tracking-wider">
+                        MfundiRez Registration
+                    </h1>
+                    <section className="p-5 w-full grid grid-cols-1 gap-y-5">
                         <div className="flex flex-col">
                             <label htmlFor="firstNames">
                                 Building <span>*</span>
@@ -120,12 +123,13 @@ const StepTwo: NextPage = () => {
                     </section>
                     <button
                         type="submit"
-                        className="flex w-full md:w-1/5 justify-center py-2 px-4 mt-3 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-red-600 hover:bg-red-700 focus:outline-none">
+                        className="flex w-full md:w-2/5 justify-center py-2 px-4 mt-3 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-amber-500 hover:bg-amber-600 focus:outline-none">
                         Submit Application
                     </button>
                 </form>
+                <img src="/image.jpg" alt="" className="w-3/5 h-screen" />
             </main>
-        </>
+        </div>
     );
 };
 

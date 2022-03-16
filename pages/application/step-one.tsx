@@ -28,14 +28,19 @@ const StepOne: NextPage = () => {
     });
 
     return (
-        <>
+        <div className="w-screen min-h-screen">
             <Head>
-                <title></title>
+                <title>Step One | MfundiRez Applications</title>
             </Head>
-            <main className="">
-                <form className="p-5 w-full max-w-4xl mx-auto" onSubmit={studentForm.handleSubmit}>
-                    <div className="shadow overflow-hidden rounded-md p-3 w-full">
-                        <section className="grid sm:grid-cols-1 md:grid-cols-2 gap-x-20 gap-y-5">
+            <main className="flex overflow-hidden">
+                <form
+                    className="flex flex-col items-center justify-center w-full"
+                    onSubmit={studentForm.handleSubmit}>
+                    <h1 className="text-4xl mb-5 font-bold italic tracking-wider">
+                        MfundiRes Registration
+                    </h1>
+                    <div className="p-3 w-full">
+                        <section className="grid sm:grid-cols-1 md:grid-cols-2 gap-x-10 gap-y-4">
                             <div className="flex flex-col">
                                 <label htmlFor="firstNames">
                                     First Names <span>*</span>
@@ -169,13 +174,14 @@ const StepOne: NextPage = () => {
                         </section>
                         <button
                             type="submit"
-                            className="justify-center py-2 px-4 mt-3 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-red-600 hover:bg-red-700 focus:outline-none flex w-full md:w-1/5">
+                            className="justify-center py-2 px-4 mt-3 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-amber-500 hover:bg-amber-600 focus:outline-none flex w-full md:w-2/5">
                             Create Profile
                         </button>
                     </div>
                 </form>
+                <img src="/image.jpg" alt="" className="w-1/2 h-screen" />
             </main>
-        </>
+        </div>
     );
 };
 
