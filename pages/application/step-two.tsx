@@ -1,3 +1,4 @@
+import { createApplication } from "@/utils/api_calls";
 import { useFormik } from "formik";
 import type { NextPage } from "next";
 import Head from "next/head";
@@ -22,9 +23,9 @@ const StepTwo: NextPage = () => {
         onSubmit: async (values) => {
             const reqBody = { ...values, studentNumber };
 
-            console.log(reqBody);
-            localStorage.setItem("applicationForm", JSON.stringify(reqBody));
-            router.replace(`/application/successful?studentNumber=${studentNumber}`);
+            createApplication(reqBody).then(() =>
+                router.replace(`/application/successful?studentNumber=${studentNumber}`),
+            );
         },
     });
 

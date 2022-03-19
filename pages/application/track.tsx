@@ -16,8 +16,6 @@ const TrackApplication: NextPage = ({ application }: any | null) => {
         },
     });
 
-    console.log(stdApplication);
-
     return (
         <div className="w-screen min-h-screen">
             <Head>
@@ -50,23 +48,23 @@ const TrackApplication: NextPage = ({ application }: any | null) => {
                         <div className="shadow shadow-amber-500/80 w-4/5 rounded-md p-3">
                             <div className="text-left">
                                 <section className="grid grid-cols-1 gap-y-3">
-                                    <div className="grid grid-cols-2">
+                                    <div className="grid grid-cols-2 capitalize">
                                         <p className="font-bold">Student Number</p>
                                         <p>{stdApplication.studentNumber}</p>
                                     </div>
-                                    <div className="grid grid-cols-2">
+                                    <div className="grid grid-cols-2 capitalize">
                                         <p className="font-bold">Building</p>
                                         <p>{stdApplication.building}</p>
                                     </div>
-                                    <div className="grid grid-cols-2">
+                                    <div className="grid grid-cols-2 capitalize">
                                         <p className="font-bold">Room Type</p>
                                         <p>{stdApplication.roomType}</p>
                                     </div>
-                                    <div className="grid grid-cols-2">
+                                    <div className="grid grid-cols-2 capitalize">
                                         <p className="font-bold">Funding</p>
                                         <p>{stdApplication.funding}</p>
                                     </div>
-                                    <div className="grid grid-cols-2 gap-x-10">
+                                    <div className="grid grid-cols-2 capitalize">
                                         <p className="font-bold">Status</p>
                                         <p>{stdApplication.status}</p>
                                     </div>

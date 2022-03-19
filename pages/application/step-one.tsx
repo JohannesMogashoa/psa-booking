@@ -3,6 +3,7 @@ import { useFormik } from "formik";
 import Head from "next/head";
 import { studentFormSchema } from "../../utils/schemas";
 import { useRouter } from "next/router";
+import { createStudentProfile } from "@/utils/api_calls";
 
 const StepOne: NextPage = () => {
     const router = useRouter();
@@ -22,8 +23,9 @@ const StepOne: NextPage = () => {
         },
         validationSchema: studentFormSchema,
         onSubmit: async (values) => {
-            localStorage.setItem("student", JSON.stringify(values));
-            router.push(`/application/step-two?studentNumber=${values.studentNumber}`);
+            createStudentProfile(values).then(() =>
+                router.push(`/application/step-two?studentNumber=${values.studentNumber}`),
+            );
         },
     });
 

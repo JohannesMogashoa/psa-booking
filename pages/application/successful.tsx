@@ -1,7 +1,5 @@
-import { useFormik } from "formik";
 import type { NextPage } from "next";
 import Head from "next/head";
-import Link from "next/link";
 import { useRouter } from "next/router";
 
 const Successful: NextPage = () => {
